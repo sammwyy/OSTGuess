@@ -54,9 +54,13 @@ export default function Home({ data }: PageProps) {
       lifes,
       version: 1,
     };
+    console.log("[OSTGuess] Saving game...");
     const savedGameRaw = JSON.stringify(savedGame);
-    localStorage.setItem("save", savedGameRaw);
-    console.log("[OSTGuess] Saved game.");
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("save", savedGameRaw);
+      console.log("[OSTGuess] Saved game.");
+    }
   }
 
   function loadGame() {
