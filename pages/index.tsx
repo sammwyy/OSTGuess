@@ -81,9 +81,9 @@ export default function Home({ data }: PageProps) {
       }
 
       setGameSongs(indexedSongs);
-      setStarted(true);
       console.log("[OSTGuess] Loaded game.");
     }
+    setStarted(true);
   }
 
   useEffect(() => {
