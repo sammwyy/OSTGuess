@@ -55,11 +55,12 @@ export default function Home({ data }: PageProps) {
       version: 1,
     };
     const savedGameRaw = JSON.stringify(savedGame);
-    window.localStorage.setItem("save", savedGameRaw);
+    localStorage.setItem("save", savedGameRaw);
+    console.log("[OSTGuess] Saved game.");
   }
 
   function loadGame() {
-    const savedGameRaw = window.localStorage.getItem("save");
+    const savedGameRaw = localStorage.getItem("save");
     if (savedGameRaw) {
       const savedGame = JSON.parse(savedGameRaw);
       setPoints(savedGame.points);
@@ -77,6 +78,7 @@ export default function Home({ data }: PageProps) {
 
       setGameSongs(indexedSongs);
       setStarted(true);
+      console.log("[OSTGuess] Loaded game.");
     }
   }
 
@@ -104,7 +106,7 @@ export default function Home({ data }: PageProps) {
       window.removeEventListener("keydown", listener);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentSong]);
 
   useEffect(() => {
     if (wrong) {
@@ -144,6 +146,7 @@ export default function Home({ data }: PageProps) {
     setState(Status.HIDE);
     setSongIndex(songIndex + 1);
     setInput("");
+    console.log("[OSTGuess] Triggered next song.");
   }
 
   function guess() {
@@ -155,9 +158,11 @@ export default function Home({ data }: PageProps) {
         setTimeout(() => {
           nextSong();
         }, 3000);
+        console.log("[OSTGuess] Song guessed.");
       } else {
         setLifes(lifes - 1);
         setWrong(true);
+        console.log("[OSTGuess] Wrong song.");
       }
     }
   }
