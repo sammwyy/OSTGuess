@@ -1,3 +1,7 @@
+.wrapper {
+  overflow: hidden;
+}
+
 .main {
   width: 100%;
   height: 100vh;
@@ -5,13 +9,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .section {
   margin: 10px 0;
 }
 
-.btn {
+.btn,
+.btn-disabled {
   font-size: 18px;
   padding: 10px 20px;
   border-radius: 4px;
@@ -22,6 +28,12 @@
   outline: none;
   transition: 120ms all ease-in-out;
   margin: 0 5px;
+  transition: all ease-in-out 200ms;
+}
+
+.btn-disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 .btn:hover {
@@ -36,7 +48,8 @@
   background-color: #be6161;
 }
 
-.input {
+.input,
+.input-wrong {
   font-size: 18px;
   padding: 5px 10px;
   outline: none;
@@ -44,6 +57,12 @@
   background-color: #fff1;
   border-bottom: 3px solid #7761be;
   min-width: 300px;
+  transition: all ease-in-out 100ms;
+}
+
+.input-wrong {
+  border-bottom: 3px solid red;
+  color: red;
 }
 
 .text {
@@ -56,8 +75,8 @@
 }
 
 .title-hide {
-  filter: blur(10px);
   user-select: none;
+  -webkit-user-drag: none;
 }
 
 .title-success {
@@ -68,4 +87,8 @@
 .title-failed {
   color: red;
   user-select: none;
+}
+
+.lifes {
+  display: flex;
 }
