@@ -272,7 +272,7 @@ export default function Home({ data }: PageProps) {
 
 export async function getServerSideProps(_context: NextPageContext) {
   const req = await unfetch(
-    "https://cdn.sammwy.com/game-assets/ostguess/data.json"
+    "https://cdn.sammwy.com/ost-guess/data.json"
   );
 
   const data = await req.json();
