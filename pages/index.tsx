@@ -254,7 +254,7 @@ export default function Home({ data }: PageProps) {
             <div className={styles.player}>
               <audio
                 src={
-                  "https://cdn.sammwy.com/game-assets/ostguess/" +
+                  "https://cdn.sammwy.com/ost-guess/" +
                   currentSong?.uri
                 }
                 controls={true}
